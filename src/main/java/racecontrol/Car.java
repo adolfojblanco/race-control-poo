@@ -99,8 +99,23 @@ public class Car {
 	
 	
 	
+	
 
 
+
+	/**
+	 * @return the distance
+	 */
+	public int getDistance() {
+		return distance;
+	}
+
+	/**
+	 * @param distance the distance to set
+	 */
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
 
 	@Override
 	public String toString() {
