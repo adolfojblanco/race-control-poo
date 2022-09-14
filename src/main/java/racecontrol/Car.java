@@ -119,7 +119,7 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [" + brand + ", " + model + "], " + "distancia = [" + distance + "]";
+		return "Car [" + brand + ", " + model + " " + this.getGarage() +"], " + "distancia = [" + distance + "]";
 	}
 
 	/**

@@ -80,7 +80,7 @@ public class Garage {
 
 	@Override
 	public String toString() {
-		return "Garage [" + name +"]";
+		return this.name;
 	}
 	
 	

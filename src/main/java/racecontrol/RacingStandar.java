@@ -58,15 +58,20 @@ public class RacingStandar extends Racing {
 		Car car = new Car();
 		int coches = car.getCars().size();
 		Utils.ramdomNuber(0, coches -1 );
-
-		for (int i = 0; i < coches; i++) {
-			car = car.getCars().get(i);
-			System.out.println(car);
-			
-			for (int j = 0; j < coches -1; j++) {
-				car.setDistance(10);
-			}
+		
+		for (Car c : car.getCars()) {
+			System.out.println(c);
 		}
+		System.out.println("===========================");
+		for (int i = 0; i < coches; i++) {
+			
+			int distancia = 0;
+			Car c = car.getCars().get(i);
+			c.setDistance(distancia);
+			System.out.println(c);
+		}
+		
+
 
 	}
 
