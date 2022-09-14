@@ -38,46 +38,28 @@ public class Main {
 			switch (option) {
 
 			case 1:
-				garage.newGarage();
+				//garage.newGarage();
 				break;
 				
 				
 			case 2:
-
-				key.nextLine();
-				System.out.println("Introduce la marca: ");
-				String brand = key.nextLine();
-
-				System.out.println("Introduce el modelo: ");
-				String model = key.nextLine();
-				Car car1 = new Car(brand, model);
-				garage.garageList();
-
-				garage.selectGarage();
-				car.setGarage(garage);
 				break;
 
 			case 3:
-				System.out.println("===========================");
-				System.out.println("=== Listado de Garages: ===");
-				System.out.println("===========================");
 				garage.garageList();
 				break;
 
 			case 4:
-
 				car.carsList();
 				break;
 				
 			case 5:
-				
+
 				if(Utils.garages.isEmpty() || Utils.garages == null) {
 					garage.randomGarage(10);
 				}
 				
-				car.ramdomCars(10);
-				
-				//racing.startStandarRace();
+				car.ramdomCars(20);
 				break;
 
 			case 0:
