@@ -1,7 +1,6 @@
 package racecontrol;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 
 public class RacingStandar extends Racing {
@@ -55,23 +54,7 @@ public class RacingStandar extends Racing {
 				+ "░╚═══██╗░░░██║░░░██╔══██║██╔══██╗░░░██║░░░\n" + "██████╔╝░░░██║░░░██║░░██║██║░░██║░░░██║░░░\n"
 				+ "╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░\n" + "===========================================");
 
-		Car car = new Car();
-		int coches = car.getCars().size();
-		Utils.ramdomNuber(0, coches -1 );
-		
-		for (Car c : car.getCars()) {
-			System.out.println(c);
-		}
 		System.out.println("===========================");
-		for (int i = 0; i < coches; i++) {
-			
-			int distancia = 0;
-			Car c = car.getCars().get(i);
-			c.setDistance(distancia);
-			System.out.println(c);
-		}
-		
-
 
 	}
 

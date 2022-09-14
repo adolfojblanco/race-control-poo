@@ -55,31 +55,29 @@ public class Main {
 
 				garage.selectGarage();
 				car.setGarage(garage);
-				
-
 				break;
 
 			case 3:
 				System.out.println("===========================");
 				System.out.println("=== Listado de Garages: ===");
 				System.out.println("===========================");
-				int contador = 0;
 				garage.garageList();
 				break;
 
 			case 4:
+
 				car.carsList();
 				break;
 				
 			case 5:
 				
-				if(garage == null || garage.getGarages().isEmpty()) {
+				if(Utils.garages.isEmpty() || Utils.garages == null) {
 					garage.randomGarage(10);
 				}
 				
 				car.ramdomCars(10);
 				
-				racing.startStandarRace();
+				//racing.startStandarRace();
 				break;
 
 			case 0:

@@ -1,5 +1,6 @@
 package racecontrol;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Utils {
@@ -17,5 +18,10 @@ public class Utils {
 		int value = random.nextInt(max + min) + min;
 		return value;
 	}
+	
+	/**
+	 * Garage List
+	 */
+	static ArrayList<Garage> garages = new ArrayList<Garage>();
 
 }

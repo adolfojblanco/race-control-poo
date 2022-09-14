@@ -11,8 +11,6 @@ public class Racing {
 	
 	protected Car winner;
 	
-	
-	
 
 	public Racing() {
 	}
