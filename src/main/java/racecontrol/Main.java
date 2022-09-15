@@ -31,7 +31,7 @@ public class Main {
 			System.out.println("============================");
 
 			System.out.println(
-					" 1. Registrar Garaje \n 2. Registrar Coche \n 3. Listado de Garajes \n 4. Listado Coches \n 5. Generar Garages y Coches \n 6. Carrera Standar \n 0. Salir");
+					" 1. Registrar Escuderia \n 2. Registrar Coche \n 3. Listado de Escuderias \n 4. Listado Coches \n 5. Generar Escuderias y Coches \n 6. Carrera Standar \n 0. Salir");
 			System.out.println("===========================");
 
 			key = new Scanner(System.in);
@@ -52,7 +52,7 @@ public class Main {
 				break;
 
 			case 4:
-				car.carsList();
+				car.lisfOfCars();
 				break;
 				
 			case 5:

@@ -3,7 +3,7 @@
  */
 package racecontrol;
 
-
+import java.util.ArrayList;
 
 /**
  * @author adolfob
@@ -18,6 +18,8 @@ public class Car {
 	private String garageName;
 
 	private int distance;
+
+	private int velocity;
 
 	private final int MAX_SPEED = 250;
 
@@ -60,10 +62,28 @@ public class Car {
 		this.garageName = garageName;
 	}
 
+	public int getDistance() {
+		return distance;
+	}
+
+	public void setDistance(int distance) {
+		this.distance = distance;
+	}
+
+	public int getVelocity() {
+		// d = v * t
+		
+		return velocity;
+	}
+
+	public void setVelocity(int velocity) {
+		this.velocity = velocity;
+	}
+
 	@Override
 	public String toString() {
-		return "Car [brand=" + brand + ", model=" + model + ", garageName=" + garageName + ", distance=" + distance
-				+ "]";
+		return "Car [brand=" + brand + ", model=" + model + ", Escuderia=" + garageName + ", distance=" + distance
+				+ ", velocity=" + velocity + " Km/h" + "]";
 	}
 
 	/**
@@ -111,10 +131,21 @@ public class Car {
 		System.out.println("===========================");
 
 		for (Garage g : Utils.garages) {
-
 			g.showCars();
 
 		}
+
+	}
+
+	public ArrayList<Car> lisfOfCars() {
+		Garage g = new Garage();
+		ArrayList<Car> cars = new ArrayList<Car>();
+
+		for (Car car : g.getCars()) {
+			System.out.println(car);
+		}
+
+		return cars;
 
 	}
 
