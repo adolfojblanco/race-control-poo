@@ -5,7 +5,6 @@ package racecontrol;
 
 import java.util.ArrayList;
 
-
 /**
  * @author adolfob
  *
@@ -14,7 +13,7 @@ public class Garage {
 
 	private String name;
 
-	private ArrayList<Car> Cars = new ArrayList();
+	private ArrayList<Car> cars = new ArrayList();
 
 	public Garage() {
 
@@ -26,7 +25,7 @@ public class Garage {
 
 	public Garage(String name, ArrayList<Car> cars) {
 		this.name = name;
-		Cars = cars;
+		cars = cars;
 	}
 
 	public String getName() {
@@ -38,22 +37,29 @@ public class Garage {
 	}
 
 	public ArrayList<Car> getCars() {
-		return Cars;
+		return cars;
 	}
 
 	public void setCars(ArrayList<Car> cars) {
-		Cars = cars;
+		cars = cars;
 	}
-	
+
 	public void addCar(Car car) {
-		this.Cars.add(car);
+		this.cars.add(car);
 	}
 	
-	
-	
+	/**
+	 * Show a car list
+	 */
+	public void showCars() {
+		for (Car car : cars) {
+			System.out.println("|" + car.getGarageName() + "|" + car.getBrand() + "|"+  car.getModel());
+		}
+	}
 
 	/**
 	 * Random list of garages
+	 * 
 	 * @param quantity
 	 */
 	public void randomGarage(int quantity) {
@@ -68,16 +74,18 @@ public class Garage {
 		}
 
 	}
-	
+
+	/**
+	 * Return Garage List
+	 */
 	public void garageList() {
 		int contador = 0;
 		System.out.println("===========================");
 		System.out.println("=== Listado de Garages: ===");
 		System.out.println("===========================");
-		
+
 		for (Garage g : Utils.garages) {
-			
-			System.out.println(g.getName() + " | Coches: " +  g.getCars().size());
+			System.out.println(g.getName() + " | Coches: " + g.getCars().size());
 		}
 	}
 

@@ -1,53 +1,42 @@
 package racecontrol;
 
-import java.util.ArrayList;
+public class RaceStandard extends Race {
 
+	int time = 180;
 
-public class RacingStandar extends Racing {
-
-	private int time = 180;
-
-	private int numCoches;
-
-	public RacingStandar() {
+	public RaceStandard() {
 
 	}
 
-	public RacingStandar(ArrayList<Car> cars, ArrayList<Garage> garages, Car winner, int time, int numCoches) {
-		super(cars, garages, winner);
+	public RaceStandard(String name, int numCars) {
+		super(name, numCars);
+	}
+
+	public RaceStandard(String name, int numCars, int time) {
+		super(name, numCars);
 		this.time = time;
-		this.numCoches = numCoches;
 	}
 
-	/**
-	 * @return the time
-	 */
 	public int getTime() {
 		return time;
 	}
 
-	/**
-	 * @param time the time to set
-	 */
 	public void setTime(int time) {
 		this.time = time;
 	}
 
 	/**
-	 * @return the numCoches
+	 * Star race
+	 * 
+	 * @param coches
 	 */
-	public int getNumCoches() {
-		return numCoches;
-	}
 
-	/**
-	 * @param numCoches the numCoches to set
-	 */
-	public void setNumCoches(int numCoches) {
-		this.numCoches = numCoches;
-	}
-
-	public void startStandarRace() {
+	public void startRace() {
+		Car car = new Car();
+		Garage garage = new Garage();
+		
+		this.registerData();
+		
 
 		System.out.println("\n" + "░██████╗████████╗░█████╗░██████╗░████████╗\n"
 				+ "██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝\n" + "╚█████╗░░░░██║░░░███████║██████╔╝░░░██║░░░\n"
@@ -55,6 +44,22 @@ public class RacingStandar extends Racing {
 				+ "╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░\n" + "===========================================");
 
 		System.out.println("===========================");
+		
+		
+		for (int i = 0; i < this.numCars; i++) {
+			
+			int rCar = Utils.ramdomNuber(0, this.numCars);
+		
+			for (int j = 0; j < Utils.garages.size() - 1; j++) {
+				
+				System.out.println(Utils.garages.get(j));
+				
+			}
+		}
+		
+		
+	
+		
 
 	}
 

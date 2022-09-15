@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class Main {
 
+	private static Scanner key;
+
 	/**
 	 * @param args
 	 */
@@ -21,7 +23,7 @@ public class Main {
 		boolean exit = false;
 		Garage garage = new Garage();
 		Car car = new Car();
-		RacingStandar racing = new RacingStandar();
+		RaceStandard rStandard = new RaceStandard();
 
 		do {
 			System.out.println("============================");
@@ -32,7 +34,7 @@ public class Main {
 					" 1. Registrar Garaje \n 2. Registrar Coche \n 3. Listado de Garajes \n 4. Listado Coches \n 5. Generar Garages y Coches \n 6. Carrera Standar \n 0. Salir");
 			System.out.println("===========================");
 
-			Scanner key = new Scanner(System.in);
+			key = new Scanner(System.in);
 
 			int option = key.nextInt();
 			switch (option) {
@@ -60,6 +62,21 @@ public class Main {
 				}
 				
 				car.ramdomCars(20);
+				break;
+				
+			case 6:
+				
+				
+				if(Utils.garages == null || Utils.garages.isEmpty()) {
+					garage.randomGarage(10);
+				}
+				
+				if(garage.getCars() == null || garage.getCars().isEmpty()) {
+					car.ramdomCars(10);
+				}
+				
+				rStandard.startRace();
+				
 				break;
 
 			case 0:
