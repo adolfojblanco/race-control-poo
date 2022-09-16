@@ -148,5 +148,25 @@ public class Car {
 		return cars;
 
 	}
+	
+	/**
+	 * Acelerar o desaelerar coche.
+	 */
+	
+	public int acelerateCar() {
+		int r = Utils.ramdomNuber(0, 2);
+		boolean opt[] = { true, false};
+		
+		if(opt[r]) {
+			return this.velocity - 10;
+		}else {
+			return this.velocity + 10;
+		}
+		
+	}
+
+	
+	
+	
 
 }

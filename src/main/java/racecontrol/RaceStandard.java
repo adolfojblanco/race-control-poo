@@ -64,8 +64,6 @@ public class RaceStandard extends Race {
 			public void run() {
 				boolean finish = true;
 
-				
-
 				while (finish) {
 					laps++;
 					timmer += 10;
@@ -94,7 +92,7 @@ public class RaceStandard extends Race {
 								car.setDistance(car.getDistance() +1);
 								
 								// Velocidad
-								car.setVelocity(car.getVelocity() + 10);
+								car.setVelocity(car.acelerateCar());
 								
 								
 								// Imprimir coche

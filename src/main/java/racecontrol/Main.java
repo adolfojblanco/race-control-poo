@@ -52,7 +52,8 @@ public class Main {
 				break;
 
 			case 4:
-				car.lisfOfCars();
+				//car.lisfOfCars();
+				System.out.println(car.acelerateCar());
 				break;
 				
 			case 5:
@@ -76,6 +77,7 @@ public class Main {
 				}
 				
 				rStandard.startRace();
+				
 				
 				break;
 

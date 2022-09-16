@@ -23,5 +23,6 @@ public class Utils {
 	 * Garage List
 	 */
 	static ArrayList<Garage> garages = new ArrayList<Garage>();
+	
 
 }
