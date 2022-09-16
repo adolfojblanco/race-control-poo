@@ -3,7 +3,6 @@
  */
 package racecontrol;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
