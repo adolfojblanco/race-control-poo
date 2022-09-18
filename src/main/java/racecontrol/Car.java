@@ -71,6 +71,7 @@ public class Car {
 	}
 
 	public int getDistance() {
+		
 		return distance;
 	}
 
@@ -97,6 +98,12 @@ public class Car {
 	public void setGarage(Garage garage) {
 		this.garage = garage;
 	}
+	
+	
+
+	public int getMAX_SPEED() {
+		return this.MAX_SPEED;
+	}
 
 	@Override
 	public String toString() {
@@ -104,8 +111,11 @@ public class Car {
 				+ ", velocity=" + velocity + " Km/h" + "]";
 	}
 
+	
+	/*************************** Metodos propios **************************/
+	
 	/**
-	 * New Car
+	 * Generate a ramdom cars
 	 */
 
 	public void ramdomCars(int quantity) {
@@ -178,20 +188,32 @@ public class Car {
 	 * Acelerar o desaelerar coche.
 	 */
 	
-	public int acelerateCar() {
+	public void acelerateCar() {
 		int r = Utils.ramdomNuber(0, 2);
+		int v = 0;
 		boolean opt[] = { true, false};
 		
-		if(opt[r]) {
-			return this.velocity - 10;
+		if(opt[r] && this.velocity >= 20) {
+			v = this.getVelocity() - 10;
 		}else {
-			return this.velocity + 10;
+			v = this.getVelocity() + 10;
 		}
+		
+		this.setVelocity(v);
+	}
+	
+	
+	/**
+	 * Calculate distance
+	 */
+	
+	public void calculateDistance(int time) {
+		
+		int d = this.getVelocity() * time;
+		
+		this.setDistance(this.distance + d);
 		
 	}
 
-	
-	
-	
 
 }

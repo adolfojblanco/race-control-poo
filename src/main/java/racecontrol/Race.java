@@ -7,9 +7,9 @@ public class Race {
 
 	private String name;
 
-	private int numCars;
+	protected int numCars;
 
-	private Car winner;
+	protected Car winner;
 
 	protected ArrayList<Car> podium = new ArrayList<Car>();
 

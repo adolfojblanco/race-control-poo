@@ -43,7 +43,6 @@ public class Main {
 				break;
 
 			case 2:
-				//car.carsList();
 				car.printListfOfCars();
 				break;
 				
@@ -53,12 +52,13 @@ public class Main {
 					garage.randomGarage(10);
 				}
 				
-				car.ramdomCars(20);
+				if(car.carsList().isEmpty() || car.carsList() == null) {
+					System.out.println("Entramos");
+				}
+				
 				break;
 				
 			case 4:
-				
-				
 				if(Utils.garages == null || Utils.garages.isEmpty()) {
 					garage.randomGarage(10);
 				}
