@@ -13,7 +13,7 @@ public class Garage {
 
 	private String name;
 
-	private ArrayList<Car> cars = new ArrayList();
+	private ArrayList<Car> cars = new ArrayList<Car>();
 
 	public Garage() {
 
@@ -69,7 +69,7 @@ public class Garage {
 		
 		String[] escuderias = { "Mercedes", "Red Bull", "McLaren", "Aston Martin", "Alpine", "Ferrari", "AlphaTauri", "Alfa Romeo", "Haas", "Williams" };
 		
-		for (int i = 0; i < quantity; i++) {
+		for (int i = 0; i < escuderias.length; i++) {
 			String name = escuderias[i];
 			Garage garage = new Garage(name);
 			Utils.garages.add(garage);
@@ -79,16 +79,16 @@ public class Garage {
 	}
 
 	/**
-	 * Return Garage List
+	 * Pring a garage list
 	 */
-	public void garageList() {
-		int contador = 0;
+	public void printGarageList() {
+		int contador = 1;
 		System.out.println("===========================");
 		System.out.println("=== Listado de Garages: ===");
 		System.out.println("===========================");
 
 		for (Garage g : Utils.garages) {
-			System.out.println(g.getName() + " | Coches: " + g.getCars().size());
+			System.out.println( contador++ + "|"+g.getName() + " | Coches: " + g.getCars().size());
 		}
 	}
 

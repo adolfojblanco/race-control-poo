@@ -16,6 +16,8 @@ public class Car {
 	private String model;
 
 	private String garageName;
+	
+	private Garage garage;
 
 	private int distance;
 
@@ -32,10 +34,16 @@ public class Car {
 	}
 
 	public Car(String brand, String model, String garageName) {
-		super();
 		this.brand = brand;
 		this.model = model;
 		this.garageName = garageName;
+	}
+	
+	public Car(String brand, String model, String garageName, Garage garage) {
+		this.brand = brand;
+		this.model = model;
+		this.garageName = garageName;
+		this.garage = garage;
 	}
 
 	public String getBrand() {
@@ -79,6 +87,16 @@ public class Car {
 	public void setVelocity(int velocity) {
 		this.velocity = velocity;
 	}
+	
+	
+
+	public Garage getGarage() {
+		return this.garage;
+	}
+
+	public void setGarage(Garage garage) {
+		this.garage = garage;
+	}
 
 	@Override
 	public String toString() {
@@ -111,40 +129,47 @@ public class Car {
 
 			Garage garage = Utils.garages.get(ramdomg);
 
-			Car car = new Car(brand, model, garageName);
+			Car car = new Car(brand, model, garageName, garage);
 			garage.addCar(car);
 			System.out.println(contador++ + ". Marca: " + car.getBrand() + ", Modelo: " + car.getModel() + ", Garage: "
 					+ car.getGarageName());
-
 		}
 
 	}
 
 	/**
-	 * Cars in Garage
+	 * Print list of cars in garages
+	 * 
+	 * @return
 	 */
-	public void carsList() {
-		Garage garage = new Garage();
-		int contador = 0;
-		System.out.println("===========================");
-		System.out.println("=== Listado de Coches: ===");
-		System.out.println("===========================");
+	public void printListfOfCars() {
+		int contador = 1;
+		for (Garage garage : Utils.garages) {
 
-		for (Garage g : Utils.garages) {
-			g.showCars();
+			for (Car car : garage.getCars()) {
+				System.out.println(contador++ + ". Marca: " + car.getBrand() + ", Modelo: " + car.getModel() + ", Garage: "
+						+ car.getGarageName());
+			}
 
 		}
 
 	}
-
-	public ArrayList<Car> lisfOfCars() {
-		Garage g = new Garage();
+	
+	/**
+	 * Return car list
+	 * @return
+	 */
+	
+	public ArrayList<Car> carsList() {
 		ArrayList<Car> cars = new ArrayList<Car>();
+		
+		for (Garage garage : Utils.garages) {
 
-		for (Car car : g.getCars()) {
-			System.out.println(car);
+			for (Car car : garage.getCars()) {
+				cars.add(car);
+			}
+
 		}
-
 		return cars;
 
 	}

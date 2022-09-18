@@ -30,7 +30,7 @@ public class Main {
 			System.out.println("============================");
 
 			System.out.println(
-					" 1. Registrar Escuderia \n 2. Registrar Coche \n 3. Listado de Escuderias \n 4. Listado Coches \n 5. Generar Escuderias y Coches \n 6. Carrera Standar \n 0. Salir");
+					" 1. Listado de Escuderias \n 2. Listado Coches \n 3. Generar Escuderias y Coches \n 4. Carrera Standar \n 0. Salir");
 			System.out.println("===========================");
 
 			key = new Scanner(System.in);
@@ -39,23 +39,15 @@ public class Main {
 			switch (option) {
 
 			case 1:
-				//garage.newGarage();
+				garage.printGarageList();
 				break;
-				
-				
+
 			case 2:
-				break;
-
-			case 3:
-				garage.garageList();
-				break;
-
-			case 4:
-				//car.lisfOfCars();
-				System.out.println(car.acelerateCar());
+				//car.carsList();
+				car.printListfOfCars();
 				break;
 				
-			case 5:
+			case 3:
 
 				if(Utils.garages.isEmpty() || Utils.garages == null) {
 					garage.randomGarage(10);
@@ -64,7 +56,7 @@ public class Main {
 				car.ramdomCars(20);
 				break;
 				
-			case 6:
+			case 4:
 				
 				
 				if(Utils.garages == null || Utils.garages.isEmpty()) {
@@ -83,6 +75,11 @@ public class Main {
 			case 0:
 				exit = true;
 				System.out.println("Hasta Luego");
+				break;
+			
+			default:
+				System.out.println("Seleccion invvalida");
+				
 			}
 
 		} while (!exit);
