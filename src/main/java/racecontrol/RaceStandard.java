@@ -1,13 +1,20 @@
 package racecontrol;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class RaceStandard extends Race {
 
-	private int time = 180;
+	private int time;
 
 	public RaceStandard() {
 
+	}
+	
+	public RaceStandard(int time) {
+		this.time = time;
+		
 	}
 
 	public RaceStandard(String name, int numCars, Car winner, ArrayList<Car> podium, ArrayList<Car> rCars,
@@ -20,10 +27,20 @@ public class RaceStandard extends Race {
 	}
 
 	public void setTime(int time) {
-		this.time = time;
+		if (time == 0) {
+			this.time = 3;
+		}else {
+			this.time = time;
+		}
 	}
 
 	/****************** Metodos Propios *********************/
+	
+	
+	
+	public void raceCars() {
+		
+	}
 
 	/**
 	 * Star race
@@ -32,84 +49,94 @@ public class RaceStandard extends Race {
 	 */
 
 	public void startRace() {
+		
 		this.registerData();
 
-		System.out.println("\n" + "░██████╗████████╗░█████╗░██████╗░████████╗\n"
-				+ "██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝\n" + "╚█████╗░░░░██║░░░███████║██████╔╝░░░██║░░░\n"
-				+ "░╚═══██╗░░░██║░░░██╔══██║██╔══██╗░░░██║░░░\n" + "██████╔╝░░░██║░░░██║░░██║██║░░██║░░░██║░░░\n"
-				+ "╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░\n" + "===========================================");
-
-		System.out.println("===========================");
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce la duración: ");
+		int d = sc.nextInt();
+		this.setTime(d);
 
 		Runnable runnable = new Runnable() {
-			Car car = new Car();
-			int laps = 0;
-			int timmer = 0;
+			int laps = 1;
+			int timmer = 1;
 
 			public void run() {
+				Car car = new Car();
+				RaceStandard rStandard = new RaceStandard();
 				boolean finish = true;
+				int contador = 1;
+
+				/** Usamos la lista de coches y seleccionamos los coches que van a correr **/
+				for (int i = 0; i < getNumCars(); i++) {
+					// Generamos un numero aleatorio, con el numero de coches totales que existen.
+					int numR = Utils.ramdomNuber(0, car.carsList().size());
+					car = car.carsList().get(numR);
+					rCars.add(car);
+				}
+				
 
 				while (finish) {
 					laps++;
-					timmer += 10;
 
-					if (timmer == 40) {
+					if (timmer == time) {
 						finish = false;
 					}
+					
+					for (int i = 0; i < rStandard.getrCars().size(); i++) {
+						
+						System.out.println(rStandard.getrCars().size());
 
-					for (int i = 0; i < numCars; i++) {
+						try {
+							// Inicio del hilo cada seg
+							Thread.sleep(1000);
+							System.out.println("Comenzamos");
+							Car sCar = rStandard.getrCars().get(i);
+							
 
-						for (int j = 0; j < Utils.garages.get(i).getCars().size(); j++) {
+							// Calcular distancia
+							sCar.calculateDistance(timmer);
 
-							try {
-								// Inicio del hilo cada seg
-								Thread.sleep(1000);
+							// Velocidad
+							car.acelerateCar();
 
-								// Movemos los coches
-								car = Utils.garages.get(i).getCars().get(j);
+							// Imprimir coche
+							System.out.println(sCar);
 
-								// Calcular distancia
-								car.calculateDistance(timmer);
-								
-								
-								// Velocidad
-								car.acelerateCar();
+							// Agregar al podium
 
-
-								// Imprimir coche
-								System.out.println(car);
-
-								// Agregar al podium
-
-							} catch (InterruptedException e) {
-								e.printStackTrace();
-							}
-
+						} catch (InterruptedException e) {
+							e.printStackTrace();
 						}
 
 					}
-					if (finish == false) {
 
-						System.out.println("===========================");
-						System.out.println("======= Vuelta final ========");
-						System.out.println("===========================");
+				}
+				contador = 1;
+				
+				if (finish == false) {
+					System.out.println("===========================");
+					System.out.println("======= Vuelta final ========");
+					System.out.println("===========================");
 
-					} else {
-						System.out.println("===========================");
-						System.out.println("======= Vuelta " + laps + " =========");
-						System.out.println("===========================");
-					}
-
+				} else {
+					System.out.println("===========================");
+					System.out.println("======= Vuelta " + laps + " =========");
+					System.out.println("===========================");
 				}
 
 			}
+			
 
 		};
-
+		
 		Thread hilo = new Thread(runnable);
 		hilo.start();
-		System.out.println("Hilo Principal");
+		Utils.printStart();
+		System.out.println("Inicio de la carrera: " + this.getName());
+		System.out.println("Participan: " + this.getNumCars() + " Coches");
+		System.out.println("La carrera durara: " + this.getTime() + " hras.");
 
+
+		}
 	}
-
-}

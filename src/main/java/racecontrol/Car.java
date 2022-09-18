@@ -1,6 +1,3 @@
-/**
- * 
- */
 package racecontrol;
 
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class Car {
 
 	private int distance;
 
-	private int velocity;
+	private int velocity = 100;
 
 	private final int MAX_SPEED = 250;
 
@@ -107,8 +104,8 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [brand=" + brand + ", model=" + model + ", Escuderia=" + garageName + ", distance=" + distance
-				+ ", velocity=" + velocity + " Km/h" + "]";
+		return "Coche [Marca: " + brand + ", Modelo: " + model + ", Escuderia: " + garageName + ", Recorrido: " + distance + "Km"
+				+ ", Velocidad: " + velocity + " Km/h" + "]";
 	}
 
 	
@@ -198,7 +195,6 @@ public class Car {
 		}else {
 			v = this.getVelocity() + 10;
 		}
-		
 		this.setVelocity(v);
 	}
 	

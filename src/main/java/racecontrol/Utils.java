@@ -24,5 +24,28 @@ public class Utils {
 	 */
 	static ArrayList<Garage> garages = new ArrayList<Garage>();
 	
+	
+	public static void setTime(int h) {
+		int time = 0;
+		RaceStandard race = new RaceStandard();
+		if (h == 0) {
+			race.setTime(3);
+		}else {
+			race.setTime(h);
+		}
+	}
+	
+	/**
+	 * Print Start
+	 */
+	public static void printStart() {
+		System.out.println("\n" + "░██████╗████████╗░█████╗░██████╗░████████╗\n"
+				+ "██╔════╝╚══██╔══╝██╔══██╗██╔══██╗╚══██╔══╝\n" + "╚█████╗░░░░██║░░░███████║██████╔╝░░░██║░░░\n"
+				+ "░╚═══██╗░░░██║░░░██╔══██║██╔══██╗░░░██║░░░\n" + "██████╔╝░░░██║░░░██║░░██║██║░░██║░░░██║░░░\n"
+				+ "╚═════╝░░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░\n" + "===========================================");
+
+		System.out.println("===========================");
+
+	}
 
 }
