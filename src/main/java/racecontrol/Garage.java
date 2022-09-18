@@ -66,8 +66,11 @@ public class Garage {
 		System.out.println("===========================");
 		System.out.println("=== Generando Garages: ====");
 		System.out.println("===========================");
+		
+		String[] escuderias = { "Mercedes", "Red Bull", "McLaren", "Aston Martin", "Alpine", "Ferrari", "AlphaTauri", "Alfa Romeo", "Haas", "Williams" };
+		
 		for (int i = 0; i < quantity; i++) {
-			String name = "Garage " + i;
+			String name = escuderias[i];
 			Garage garage = new Garage(name);
 			Utils.garages.add(garage);
 			System.out.println(garage.getName());
