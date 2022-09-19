@@ -77,8 +77,6 @@ public class Car {
 	}
 
 	public int getVelocity() {
-		// d = v * t
-		
 		return velocity;
 	}
 
