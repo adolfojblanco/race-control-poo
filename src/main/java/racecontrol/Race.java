@@ -1,6 +1,7 @@
 package racecontrol;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Race {
@@ -9,9 +10,7 @@ public class Race {
 
 	protected int numCars;
 
-	protected Car winner;
-
-	protected ArrayList<Car> podium = new ArrayList<Car>();
+	protected  ArrayList<Car> podium = new ArrayList<Car>();
 
 	protected ArrayList<Car> rCars = new ArrayList<Car>();
 
@@ -21,19 +20,8 @@ public class Race {
 
 	}
 
-	public Race(String name, int numCars, Car winner, ArrayList<Car> podium, ArrayList<Car> rCars,
-			ArrayList<Garage> rGarages) {
-		super();
-		this.name = name;
-		this.numCars = numCars;
-		this.winner = winner;
-		this.podium = podium;
-		this.rCars = rCars;
-		this.rGarages = rGarages;
-	}
-
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -41,23 +29,17 @@ public class Race {
 	}
 
 	public int getNumCars() {
-		return numCars;
+		return this.numCars;
 	}
 
 	public void setNumCars(int numCars) {
 		this.numCars = numCars;
 	}
 
-	public Car getWinner() {
-		return winner;
-	}
 
-	public void setWinner(Car winner) {
-		this.winner = winner;
-	}
 
 	public ArrayList<Car> getPodium() {
-		return podium;
+		return this.podium;
 	}
 
 	public void setPodium(ArrayList<Car> podium) {
@@ -65,7 +47,7 @@ public class Race {
 	}
 
 	public ArrayList<Car> getrCars() {
-		return rCars;
+		return this.rCars;
 	}
 
 	public void setrCars(ArrayList<Car> rCars) {
@@ -73,7 +55,7 @@ public class Race {
 	}
 
 	public ArrayList<Garage> getrGarages() {
-		return rGarages;
+		return this.rGarages;
 	}
 
 	public void setrGarages(ArrayList<Garage> rGarages) {

@@ -44,27 +44,28 @@ public class Main {
 
 			case 2:
 				car.printListfOfCars();
+				//car.orderCars();
 				break;
 				
 			case 3:
 
 				if(Utils.garages.isEmpty() || Utils.garages == null) {
-					garage.randomGarage(10);
+					garage.randomGarage();
 				}
 				
 				if(car.carsList().isEmpty() || car.carsList() == null) {
-					System.out.println("Entramos");
+					car.ramdomCars();
 				}
 				
 				break;
 				
 			case 4:
 				if(Utils.garages == null || Utils.garages.isEmpty()) {
-					garage.randomGarage(10);
+					garage.randomGarage();
 				}
 				
 				if(garage.getCars() == null || garage.getCars().isEmpty()) {
-					car.ramdomCars(10);
+					car.ramdomCars();
 				}
 				
 

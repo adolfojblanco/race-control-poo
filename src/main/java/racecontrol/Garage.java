@@ -62,7 +62,7 @@ public class Garage {
 	 * 
 	 * @param quantity
 	 */
-	public void randomGarage(int quantity) {
+	public void randomGarage() {
 		System.out.println("===========================");
 		System.out.println("=== Generando Garages: ====");
 		System.out.println("===========================");

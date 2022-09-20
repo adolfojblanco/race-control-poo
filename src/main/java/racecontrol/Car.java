@@ -1,6 +1,7 @@
 package racecontrol;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * @author adolfob
@@ -11,12 +12,15 @@ public class Car {
 	private String brand;
 
 	private String model;
+	
+	private int point;
 
 	private String garageName;
 	
 	private Garage garage;
 
-	private int distance;
+	private int distance = 0;
+
 
 	private int velocity = 100;
 
@@ -99,10 +103,21 @@ public class Car {
 	public int getMAX_SPEED() {
 		return this.MAX_SPEED;
 	}
+	
+	
+	
+
+	public int getPoint() {
+		return this.point;
+	}
+
+	public void setPoint(int point) {
+		this.point = point;
+	}
 
 	@Override
 	public String toString() {
-		return "Coche [Marca: " + brand + ", Modelo: " + model + ", Escuderia: " + garageName + ", Recorrido: " + distance + "Km"
+		return "Coche [Marca: " + brand + ", Modelo: " + model + ", Escuderia: " + garageName + ", Recorrido: " + distance + " Km"
 				+ ", Velocidad: " + velocity + " Km/h" + "]";
 	}
 
@@ -113,27 +128,26 @@ public class Car {
 	 * Generate a ramdom cars
 	 */
 
-	public void ramdomCars(int quantity) {
-		int contador = 0;
-		String marca[] = { "Alfa Romeo", "Isuzu", "Ferrari", "Skoda", "Mazda", "Nissan", "Renault", "Toyota" };
-		String modelo[] = { "F8", "Aveo", "Giulia", "CX-30", "Captur" };
+	public void ramdomCars() {
+		int quantity = 10;
+		int contador = 1;
+		
+		String marca[] = { "Alfa Romeo", "Isuzu", "Ferrari", "Skoda", "Mazda", "Nissan", "Renault", "Toyota", "BMW", "Ford", "Chevrolet" };
+		String modelo[] = { "F8", "Aveo", "Giulia", "CX-30", "Captur", "A3", "B5", "Yaris", "Picanto", "A5" };
 
 		System.out.println("===========================");
 		System.out.println("==== Generando Coches: ====");
 		System.out.println("===========================");
-
-		for (int i = 0; i < quantity; i++) {
-
-			int ramdomg = Utils.ramdomNuber(0, Utils.garages.size() - 1);
-			int ramdomb = Utils.ramdomNuber(0, marca.length);
-			int ramdomm = Utils.ramdomNuber(0, modelo.length);
-
-			this.brand = marca[ramdomb];
-			this.model = modelo[ramdomm];
-			this.garageName = Utils.garages.get(ramdomg).getName();
-
-			Garage garage = Utils.garages.get(ramdomg);
-
+		
+		
+		
+		
+		for (int i = 0; i < 10; i++) {
+			Garage garage = Utils.garages.get(i);
+			this.brand = marca[i];
+			this.model = modelo[i];
+			this.garageName = garage.getName();
+			this.garage = garage;
 			Car car = new Car(brand, model, garageName, garage);
 			garage.addCar(car);
 			System.out.println(contador++ + ". Marca: " + car.getBrand() + ", Modelo: " + car.getModel() + ", Garage: "
@@ -192,6 +206,7 @@ public class Car {
 			v = this.getVelocity() - 10;
 		}else {
 			v = this.getVelocity() + 10;
+			this.setPoint(this.point +=1);
 		}
 		this.setVelocity(v);
 	}
@@ -208,6 +223,7 @@ public class Car {
 		this.setDistance(this.distance + d);
 		
 	}
+
 
 
 }
